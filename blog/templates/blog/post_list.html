@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+	{% block content %}
+        {% for post in posts %}
+            {% if user.is_authenticated %}
+        	<a href="{% url 'blog.views.post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>Добавить</a>
+            {% endif %}
+        	<div>
+           		<h1><a href="{% url 'post_details' pk=post.pk %}">{{post.title}}</a></h1>
+        		<p>published: <i>{{ post.published_date }}</i></p>
+        		<p>{{post.text|linebreaksbr}}</p>
+        	</div>
+    	{% endfor %}
+    {% endblock content %}

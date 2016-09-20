@@ -1,0 +1,12 @@
+{% extends 'bookshop/base.html' %}
+
+    {% block content %}
+        <h1>Войдите в систему</h1>
+
+        <form method="POST" class="auth-form">{% csrf_token %}
+        	{{error}}
+            {{ form.as_p }}
+            <button type="submit">Войти</button>
+            <button name="reg" value="1" type="submit">Зарегестрироваться</button>
+        </form>
+    {% endblock %}
